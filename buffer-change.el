@@ -47,10 +47,15 @@
 (defvar buffer-change-hook nil
   "A hook run after buffer changed.")
 
+(defvar buffer-change--running nil
+  "A guard to prevent re-entrant calls to `buffer-change--run-hook'.")
+
 (defun buffer-change--run-hook ()
-  (when (buffer-change--buffer-changed?)
-    (buffer-change--save-current-buffer)
-    (run-hooks 'buffer-change-hook)))
+  (unless buffer-change--running
+    (let ((buffer-change--running t))
+      (when (buffer-change--buffer-changed?)
+        (buffer-change--save-current-buffer)
+        (run-hooks 'buffer-change-hook)))))
 
 (defun buffer-change-setup ()
   "Setup `buffer-change'."
