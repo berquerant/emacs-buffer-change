@@ -59,7 +59,7 @@
 
 (defun buffer-change-setup ()
   "Setup `buffer-change'."
-  (add-hook 'post-command-hook 'buffer-change--run-hook))
+  (add-hook 'buffer-list-update-hook 'buffer-change--run-hook))
 
 (provide 'buffer-change)
 ;;; buffer-change.el ends here
