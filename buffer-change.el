@@ -3,7 +3,7 @@
 ;; Author: berquerant
 ;; Maintainer: berquerant
 ;; Created: 11 Feb 2026
-;; Version: 0.1.0
+;; Version: 0.1.1
 ;; Keywords: buffer hook
 ;; URL: https://github.com/berquerant/emacs-buffer-change
 
